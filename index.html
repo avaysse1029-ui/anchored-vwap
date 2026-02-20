@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Layered Anchored VWAP as a Framework for Regime Identification</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="kicker">Research manuscript</div>
+      <h1>Layered Anchored VWAP as a Framework for Regime Identification</h1>
+      <p class="subtitle">Inventory Persistence, Structural Migration, and Hierarchical Decay Across Five Flow Extremes</p>
+      <div class="meta">Version: Feb 18 (snapshot). Figures embedded below. Click any figure to open a zoomable viewer (wheel to zoom, drag to pan, buttons for zoom/reset/fullscreen).</div>
+    </div>
+
+    <div class="paper">
+      <div class="figure">
+        <img data-lightbox src="assets/img/Stack_all-2.png" data-full="assets/img/Stack_all-2.png" data-title="Layered Anchored VWAP Stack (All Anchors)" alt="Layered Anchored VWAP Stack (All Anchors)">
+        <div class="cap">Figure 1. All five anchored VWAP distributions plotted concurrently at identical scale (May 14 Green, July 7 Orange, September 23 Yellow, November 28 Light Blue, January 13 Pink). Click to zoom and pan.</div>
+      </div>
+
+      <h2>Abstract</h2>
+      <div class="abstract-row">
+        <div class="abstract-text">
+          <p>This manuscript examines price behavior relative to five anchored Volume Weighted Average Price (VWAP) distributions initiated at statistically significant order flow extremes on May 14 (Green), July 7 (Orange), September 23 (Yellow), November 28 (Light Blue), and January 13 (Pink). By maintaining these anchors concurrently at identical scale, a stratified model of inventory control emerges. Anchored VWAP distributions, when initiated at structurally meaningful flow events, approximate evolving cost bases of dominant market participants.</p>
+          <p>All observations are derived from fixed-trade bars of 100,000 executed transactions per candle within a continuous, non-session-segmented series. Because bar construction is participation-normalized and does not reset at daily boundaries, persistence, acceptance, and decay are measured in trade space rather than clock time. The central finding is that regime transitions are not defined by isolated breakdowns but by sequential propagation of sustained trade-normalized acceptance failure into progressively older anchored layers. The framework presented herein interprets market structure as layered inventory persistence rather than linear trend progression and provides a documented snapshot of current regime dynamics as of February 18.</p>
+        </div>
+        <div class="abstract-img">
+          <div class="figure">
+            <img data-lightbox src="assets/img/JanFeb-Portrait.png" data-full="assets/img/JanFeb-Portrait.png" data-title="Jan–Feb Portrait" alt="Jan–Feb Portrait">
+            <div class="cap">Jan–Feb Portrait. Click to zoom and pan.</div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <h2>1. Introduction</h2>
+      <p>Price is the visible output of inventory transfer. Every transaction represents a shift in risk ownership between participants operating under different constraints, horizons, and motivations. While trend analysis and momentum measures describe directional movement, they do not explicitly account for the persistence of inventory once it has been transferred under stress. In the present study, that persistence is evaluated in participation units because the underlying chart is constructed from fixed-trade candles rather than fixed time intervals.</p>
+      <p>The data series is built from 100,000-trade bars in a continuous stream. There are no session breaks in the underlying bar construction, and no daily resets. If a candle does not complete its 100,000-trade threshold by the end of a calendar day, it continues accumulating trades into the next session until completion. As a result, structural "duration" in this manuscript refers to the number of trade-normalized bars or the implied executed trade count, not minutes, hours, or days.</p>
+      <p>Periods of statistically abnormal order flow often coincide with structural inflection points. During such events, aggressive participation overwhelms resting liquidity, imbalance widens, volatility expands, and inventory is transferred at scale. These episodes are not merely high-volume sessions; they represent moments in which positioning changes hands in a way that materially affects subsequent auction behavior. Under trade-normalized sampling, such events are observed without the distortions that arise when low-participation periods receive the same representational weight as high-participation periods.</p>
+      <p>If one anchors VWAP at these inflection points, the resulting distribution evolves as a cumulative representation of where business has transacted since that event. The anchored mean functions as a dynamic estimate of cohort cost basis. When multiple such anchors are layered chronologically, price can be interpreted not as a single trend line, but as migration between stacked cost bases.</p>
+      <p>This layered interpretation transforms structural analysis. Instead of asking whether price has broken a single reference, the more relevant inquiry becomes whether weakness has penetrated deeply enough, in participation-normalized terms, to redefine which inventory cohort controls the auction.</p>
+      <hr>
+
+      <h2>2. Methodological Considerations: Defining a Flow Extreme</h2>
+      <p>Anchoring VWAP at arbitrary swing highs or lows produces descriptive means but does not reliably capture structural inventory transfer. The validity of this framework depends on anchoring at moments characterized by measurable order flow imbalance and inventory transfer under stress. The specific trigger used to identify these events is not disclosed. The discussion below describes qualifying features in general terms.</p>
+      <p>A statistically significant flow extreme generally exhibits several characteristics:</p>
+
+      <h3>2.1 Aggressive participation surge</h3>
+      <p>A pronounced expansion in market orders relative to resting liquidity. This is typically observable as a spike in trade aggressiveness, where lifting of offers or hitting of bids occurs at a pace that exceeds typical auction rhythm. Under trade-based bar construction, this is naturally represented because each bar contains equal trade counts, allowing aggressiveness to be interpreted as a structural shift in composition rather than a byproduct of time-of-day participation changes.</p>
+
+      <h3>2.2 Liquidity imbalance and absorption</h3>
+      <p>Depth on one side of the book either retreats or absorbs disproportionately. In retreat scenarios, liquidity pulls away and price moves rapidly. In absorption scenarios, large resting interest repeatedly replenishes while aggressive flow persists. Both cases imply that inventory transfer is occurring under constrained conditions, which is precisely the context in which a cohort cost basis is likely to persist.</p>
+
+      <h3>2.3 Volatility expansion</h3>
+      <p>True flow extremes coincide with abrupt range expansion. Price does not drift; it moves decisively, often completing structural rotations that alter positioning assumptions. In a trade-normalized chart, such expansion occurs through fewer candles during high-participation phases and more candles during low-participation phases, but each candle still represents the same transactional effort. This allows volatility expansion to be interpreted as a property of participation pressure, not merely elapsed time.</p>
+
+      <h3>2.4 Cohort transfer under stress</h3>
+      <p>The defining feature of a structural flow extreme is not merely volume but the context in which volume trades. Inventory is transferred under pressure. Late participants are forced to transact, while stronger participants absorb or initiate with conviction. These events establish new cost bases that matter for weeks or months. Anchoring VWAP at these points captures the evolution of that cost basis without requiring direct visibility into individual participant balance sheets.</p>
+      <hr>
+
+      <h2>3. Anchored VWAP as an Evolving Inventory Axis</h2>
+      <p>An anchored VWAP beginning at time \(t_0\) is defined as:</p>
+      <p>$$\text{VWAP}_t = \frac{\sum_{i=t_0}^{t} P_i \, V_i}{\sum_{i=t_0}^{t} V_i}$$</p>
+      <p>In this study, \(t\) indexes a sequence of fixed-trade bars, each containing 100,000 executed trades. The anchored mean therefore represents the volume-weighted equilibrium of all transactions since the anchoring event in a continuous participation-normalized stream. It is a continuously updated approximation of cohort cost basis.</p>
+      <p>Price relative to this mean carries structural implications:</p>
+      <ul>
+        <li>Sustained trade above the mean implies the cohort remains structurally profitable.</li>
+        <li>Sustained trade below the mean implies cohort stress and potential redistribution.</li>
+        <li>Rapid rejection of excursions beyond ±2 standard deviations suggests responsive participation.</li>
+        <li>Persistent acceptance beyond historical dispersion patterns suggests expansion or decay.</li>
+      </ul>
+      <p>A critical distinction is the difference between a probe and acceptance. A probe is a transient excursion that quickly reverts. Acceptance is characterized by repeated closes and time spent beyond the mean without immediate reclamation. In a trade-normalized chart, "time spent" must be interpreted as persistence across consecutive 100,000-trade bars, not time-of-day or calendar duration. Structural decay is inferred from acceptance, not probing.</p>
+      <hr>
+
+      <h2>4. Sigma Interaction Statistics and Regime Decay Metrics</h2>
+      <p>Layered anchored VWAP interpretation becomes materially stronger when dispersion behavior is quantified. The goal is not to over-engineer prediction, but to formalize observable regime characteristics: stretch, rejection, acceptance, and decay. The key adjustment in this manuscript is that all sigma interaction statistics are evaluated in trade space, meaning per fixed-trade bar rather than per unit time.</p>
+
+      <h3>4.1 Objects and normalization</h3>
+      <p>For each anchor \(a\), define:</p>
+      <ul>
+        <li>Anchored mean \(\mu_a(t)\)</li>
+        <li>Anchored standard deviation \(\sigma_a(t)\)</li>
+        <li>Normalized distance (z-score):</li>
+      </ul>
+      <p>$$z_a(t) = \frac{P(t) - \mu_a(t)}{\sigma_a(t)}$$</p>
+      <p>This converts "distance from VWAP" into comparable units across anchors of different age, slope, and maturity, and it does so in a participation-normalized bar series.</p>
+      <hr>
+
+      <h3>4.2 What counts as a sigma interaction</h3>
+      <p>A recurring failure mode in discretionary interpretation is treating any wick as meaningful. The framework therefore distinguishes touches, sustained interactions, and outcome-labeled visits. Under trade-normalized bars, this distinction becomes even more important because each bar carries equal transactional weight.</p>
+
+      <h4>4.2.1 Touch event</h4>
+      <p>A touch at level \(k\) occurs when:</p>
+      <p>$$|z_a(t)| \ge k$$</p>
+      <p>Touch counts are noisy because they capture wicks and single-bar liquidity sweeps.</p>
+
+      <h4>4.2.2 Sustained interaction</h4>
+      <p>A sustained interaction at level \(k\) requires persistence across a local window:</p>
+      <p>$$\sum_{i=0}^{m-1}\mathbf{1}\{|z_a(t-i)| \ge k\} \ge r$$</p>
+      <p>Example parameters: \(m=5\) bars, \(r=3\) bars beyond \(k\). In the present chart construction, this corresponds to persistence across a sequence of 100,000-trade bars, which is equivalent to requiring sustained interaction across a minimum executed trade count.</p>
+
+      <h4>4.2.3 Visits with outcome classification</h4>
+      <p>Define a "visit" as entering the zone \(|z| \ge k\). Then classify the visit outcome as rejection or acceptance.</p>
+      <p><strong>Rejection:</strong> within \(H\) bars after first touch, price returns inside \(|z| \le k - \delta\):</p>
+      <p>$$\exists\, \tau \in [0,H] : |z_a(t+\tau)| \le k - \delta$$</p>
+      <p><strong>Acceptance:</strong> price remains beyond \(|z| \ge k\) for at least \(L\) bars or closes beyond it for \(L\) bars:</p>
+      <p>$$\sum_{i=0}^{L-1}\mathbf{1}\{|z_a(t+i)| \ge k\} = L$$</p>
+      <p>This rejection-versus-acceptance framing is the backbone of measuring regime decay. In trade-based sampling, acceptance implies persistence across \(L \times 100{,}000\) executed trades beyond the threshold, which is a materially stronger statement than persistence across \(L\) time bars.</p>
+      <hr>
+
+      <h3>4.3 Core per-anchor sigma statistics</h3>
+      <p>These metrics map directly to regime behavior and are designed to be comparable across anchors.</p>
+
+      <h4>4.3.1 Touch frequency by sigma level</h4>
+      <p>For \(k \in \{1,\, 1.5,\, 2,\, 2.5\}\):</p>
+      <p>$$F_a(k) = \frac{\#\{t : |z_a(t)| \ge k\}}{T}$$</p>
+      <p>Interpretation: how stretched the regime tends to get per trade-normalized bar population.</p>
+
+      <h4>4.3.2 Visit count and visit duration</h4>
+      <p>For each \(k\), count distinct visits, then compute:</p>
+      <ul>
+        <li>\(N_a(k)\): number of visits</li>
+        <li>\(\overline{D}_a(k)\): mean visit duration</li>
+        <li>\(D^{\max}_a(k)\): maximum visit duration</li>
+      </ul>
+      <p>Interpretation: persistent pressure vs clean snapbacks. In this manuscript, duration is defined in bars of 100,000 trades, which can be translated to implied executed trade count. A "long" visit is therefore a long persistence in participation space.</p>
+
+      <h4>4.3.3 Rejection rate at each band</h4>
+      <p>$$R_a(k) = \frac{\#\text{rejections at }k}{\#\text{visits to }k}$$</p>
+      <p>Interpretation: how reliably extremes mean-revert for that cohort.</p>
+
+      <h4>4.3.4 Acceptance rate at each band</h4>
+      <p>$$A_a(k) = \frac{\#\text{acceptances at }k}{\#\text{visits to }k}$$</p>
+      <p>A clean regime tends to show high \(R\) and low \(A\), particularly at outer bands and particularly on the downside in upward regimes. Rising \(A\) is the measurable signature of decay. Under trade-normalized bars, rising \(A\) implies that an increasing fraction of extreme interactions persist across large executed trade counts.</p>
+
+      <h4>4.3.5 Mean excursion after touch (MFE/MAE)</h4>
+      <p>For downside touches, for example:</p>
+      <p>$$MFE_a(k) = \mathbb{E}\!\left[\min_{\tau \in [0,H]} z_a(t+\tau)\right]$$</p>
+      <p>Interpretation: does a −2 tag typically stop, or does it slide to −2.5, measured across subsequent trade-based bars.</p>
+
+      <h4>4.3.6 Return-to-mean time</h4>
+      <p>Define mean zone \(|z| \le \epsilon\) (example \(\epsilon = 0.25\)), then:</p>
+      <p>$$TMR_a(k) = \mathbb{E}\!\left[\min\{\tau \ge 0 : |z_a(t+\tau)| \le \epsilon\}\right]$$</p>
+      <p>Interpretation: stability of equilibrium gravity. In this framework, "return-to-mean time" is measured in trade bars. A regime that previously reverted from −2 sigma in one to two trade bars but now requires five to seven trade bars is exhibiting measurable decay in participation space.</p>
+      <hr>
+
+      <h3>4.4 Mean slope and dispersion evolution</h3>
+      <p>Sigma statistics should not be interpreted in isolation. Slope and dispersion evolution provide the regime context:</p>
+      <ul>
+        <li>Positive, stable slope with high rejection rates suggests persistent trend control.</li>
+        <li>Flattening slope combined with rising downside acceptance suggests redistribution.</li>
+        <li>Inversion of slope combined with persistent downside acceptance suggests structural transition.</li>
+        <li>Expanding dispersion following sustained acceptance implies structural repricing.</li>
+        <li>Contracting dispersion with oscillation implies equilibrium.</li>
+      </ul>
+      <p>The key methodological note is that slope evolution is evaluated per trade bar rather than per time bar. This avoids conflating apparent slope decay with reduced participation.</p>
+      <hr>
+
+      <h3>4.5 Cross-anchor interaction statistics</h3>
+      <p>Layering becomes most powerful when cross-anchor "who is dominant" and "did decay cascade" are quantified.</p>
+
+      <h4>4.5.1 Dominant anchor share of time</h4>
+      <p>Find the anchor closest in normalized distance:</p>
+      <p>$$a^*(t) = \arg\min_a |z_a(t)|$$</p>
+      <p>Then compute:</p>
+      <p>$$\text{Share}(a) = \frac{\#\{t : a^*(t) = a\}}{T}$$</p>
+      <p>Interpretation: which cohort mean price is actually orbiting most. Although the term "share of time" is conventional, in this manuscript \(T\) refers to the population of trade-normalized bars. Dominance is therefore expressed as share of participation blocks rather than elapsed time.</p>
+
+      <h4>4.5.2 Propagation metric (decay cascade)</h4>
+      <p>After acceptance failure in a newer anchor \(a\), measure whether \(\text{Share}(a-1)\) increases materially over the next \(n\) trade bars. This formalizes cascade rather than relying on visual judgment alone. In effect, it measures whether price begins to spend more participation-normalized bars orbiting a deeper cohort cost basis after a newer cohort loses control.</p>
+      <hr>
+
+      <h3>4.6 Composite cohort health score</h3>
+      <p>A compact summary score per anchor can be defined without overfitting:</p>
+      <p>$$\text{Health}_a = w_1(1 - A_a(2.5)) + w_2(1 - A_a(2)) + w_3\, R_a(2.5) + w_4 \left(\frac{1}{TMR_a(2)}\right)$$</p>
+      <p>Qualitative reading:</p>
+      <ul>
+        <li>High rejection at 2 and 2.5</li>
+        <li>Low acceptance at 2 and 2.5</li>
+        <li>Fast reversion to mean</li>
+      </ul>
+      <p>If acceptance below the mean increases and return-to-mean slows, the anchor is decaying. Because all terms are derived from trade bars, the score reflects changes in behavior per executed participation unit rather than per day.</p>
+      <hr>
+
+      <h3>4.7 Minimum viable implementation</h3>
+      <p>If only a small set of statistics is tracked, this combination is sufficient to quantify persistence and decay:</p>
+      <ul>
+        <li>\(z_a(t)\) for each anchor</li>
+        <li>Visits and rejections at \(k=2\) and \(k=2.5\)</li>
+        <li>Acceptance below mean (multi-bar persistence in trade space)</li>
+        <li>Return-to-mean time after 2-sigma touch (in trade bars)</li>
+        <li>Dominant-anchor share-of-participation</li>
+      </ul>
+      <hr>
+
+      <h2>5. Hierarchical Anchor Analysis</h2>
+      <p>The five anchors form a chronological hierarchy:</p>
+      <ul>
+        <li>May 14 (Green)</li>
+        <li>July 7 (Orange)</li>
+        <li>September 23 (Yellow)</li>
+        <li>November 28 (Light Blue)</li>
+        <li>January 13 (Pink)</li>
+      </ul>
+      <p>Each represents a distinct inventory layer. The core structural claim of this paper is that regime transition is not defined by failure of a single anchor, but by the propagation of acceptance failure into progressively older layers. Under trade-based bars, this propagation is interpreted as persistence across progressively larger executed trade counts relative to deeper cohort cost bases.</p>
+      <hr>
+
+      <div class="figure">
+        <img data-lightbox src="assets/img/may14_green.png" data-full="assets/img/may14_green.png" data-title="May 14 (Green) — Structural Backbone" alt="May 14 (Green) — Structural Backbone">
+        <div class="cap">Figure 2. May 14 (Green) anchored VWAP distribution. Click to zoom and pan.</div>
+      </div>
+      <h2>6. May 14 (Green): Structural Foundation</h2>
+      <p>The May 14 anchor represents the deepest layer within the current hierarchy. Its dispersion envelope is broad, reflecting both the magnitude of the initiating flow event and the extended duration of participation that followed. Under trade-normalized sampling, this breadth is not an artifact of time but a representation of dispersion across a large population of equal-trade participation blocks.</p>
+      <p>Over time, the anchored mean developed a persistent upward slope. This slope did not accelerate abruptly; it evolved gradually, suggesting controlled accumulation rather than purely reactive positioning. The distribution matured through multiple volatility cycles, yet sustained acceptance below the mean failed to materialize. In trade space, this implies that repeated large blocks of executed trades have not accepted pricing below the cohort cost basis for long enough to constitute structural failure.</p>
+      <p>Lower deviation penetrations were repeatedly absorbed. Price rotated back toward equilibrium with consistency. This pattern implies that the cohort formed at this event possessed both capital resilience and conviction, as reflected by rejection behavior that persists even after substantial participation has occurred since inception.</p>
+      <p>Because of its depth and persistence, the May anchor functions as structural bedrock. Tactical breakdowns in more recent anchors have not materially threatened it. As long as price remains materially above this evolving mean and slope remains constructive, structural deterioration cannot be asserted.</p>
+      <hr>
+
+      <div class="figure">
+        <img data-lightbox src="assets/img/july7-orange.png" data-full="assets/img/july7-orange.png" data-title="July 7 (Orange) — Reinforcement Within Macro Structure" alt="July 7 (Orange) — Reinforcement Within Macro Structure">
+        <div class="cap">Figure 3. July 7 (Orange) anchored VWAP distribution. Click to zoom and pan.</div>
+      </div>
+      <h2>7. July 7 (Orange): Reinforcement Within Macro Structure</h2>
+      <p>The July 7 anchor formed within the broader structural environment established by May. Unlike the May distribution, the July dispersion profile is narrower and more reactive. The slope accelerated more quickly, suggesting reinforcement rather than foundational transfer.</p>
+      <p>Importantly, the July anchor remained nested above May. This nesting dynamic indicates that the July cohort did not replace the macro base; it compounded it. The Orange layer reflects a phase of structural reinforcement and momentum amplification within an intact regime.</p>
+      <p>Deviation responses within this channel were statistically contained. Lower-band tests were shallow and brief, followed by expansion. In a trade-normalized series, "brief" refers to fewer 100,000-trade bars spent below the relevant band before reclamation. This pattern implies responsive buying at controlled stretch rather than structural fragility.</p>
+      <p>The nesting of July above May establishes a hierarchy: if weakness emerges, migration would be expected toward July before challenging the deeper Green base. The sequential nature of such migration is central to layered regime interpretation.</p>
+      <hr>
+
+      <div class="figure">
+        <img data-lightbox src="assets/img/sep23-yellow.png" data-full="assets/img/sep23-yellow.png" data-title="September 23 (Yellow) — Mature Balance Phase" alt="September 23 (Yellow) — Mature Balance Phase">
+        <div class="cap">Figure 4. September 23 (Yellow) anchored VWAP distribution. Click to zoom and pan.</div>
+      </div>
+      <h2>8. September 23 (Yellow): Equilibrium and Value Rotation</h2>
+      <p>The September 23 anchor marks a transition from acceleration to equilibrium. Its dispersion envelope is tighter than May and its slope more moderated than July. Price oscillated symmetrically around this mean for extended periods.</p>
+      <p>This behavior is characteristic of mature balance. The auction spent time establishing value rather than extending trend. Sigma excursions beyond ±2 were limited in duration and typically reverted efficiently toward equilibrium. Under trade bars, this indicates that large executed participation blocks were unable to sustain acceptance at extremes for long, consistent with equilibrium retention.</p>
+      <p>The Yellow layer thus functions as an intermediate equilibrium axis. When tactical layers weaken, price often rotates toward this cost basis before testing deeper structural anchors. Such migration is not collapse but redistribution, expressed as a shift in dominance share toward a deeper cohort mean.</p>
+      <p>The September anchor remains structurally intact as of the documented snapshot. Sustained acceptance below this layer would represent a meaningful escalation in structural pressure. Absent that condition, weakness remains contained within higher-frequency layers.</p>
+      <hr>
+
+      <div class="figure">
+        <img data-lightbox src="assets/img/nov28-lightblue.png" data-full="assets/img/nov28-lightblue.png" data-title="November 28 (Light Blue) — Tactical Dominance and Decay" alt="November 28 (Light Blue) — Tactical Dominance and Decay">
+        <div class="cap">Figure 5. November 28 (Light Blue) anchored VWAP distribution. Click to zoom and pan.</div>
+      </div>
+      <h2>9. November 28 (Light Blue): Tactical Dominance and Isolated Decay</h2>
+      <p>The November 28 anchor initially displayed high structural coherence. Dispersion was narrow, mean respect consistent, and rotational behavior orderly. For months, price interacted with this anchored mean as a tactical axis.</p>
+      <p>Recent developments have altered that profile. Multi-bar persistence below the Light Blue mean represents the first prolonged inability of this cohort to reclaim equilibrium. In this manuscript, "multi-bar" refers to consecutive 100,000-trade bars, meaning several hundred thousand executed trades have accepted pricing beneath the cohort's cost basis without immediate reclamation.</p>
+      <p>This shift implies cohort stress. Inventory accumulated since November 28 is increasingly underwater, and rallies toward the mean exhibit supply characteristics rather than responsive demand. This is precisely the regime condition that manifests statistically as higher acceptance rates, longer visit durations below the mean, and slower return-to-mean behavior.</p>
+      <p>Crucially, this decay remains isolated to the Light Blue layer. The Yellow, Orange, and Green anchors have not experienced comparable acceptance failure. Therefore, while tactical control has weakened, structural regime integrity remains intact.</p>
+      <p>This is exactly the type of deterioration that sigma interaction statistics are designed to formalize: rising acceptance rate, longer visit durations below the mean, and increasing return-to-mean time, without corresponding deterioration in deeper anchors.</p>
+      <hr>
+
+      <div class="figure">
+        <img data-lightbox src="assets/img/jan13_pink.png" data-full="assets/img/jan13_pink.png" data-title="January 13 (Pink) — Short-Cycle Redistribution" alt="January 13 (Pink) — Short-Cycle Redistribution">
+        <div class="cap">Figure 6. January 13 (Pink) anchored VWAP distribution. Click to zoom and pan.</div>
+      </div>
+      <h2>10. January 13 (Pink): Redistribution and Short-Cycle Conflict</h2>
+      <p>The January 13 anchor is the most reactive layer in the hierarchy. Its dispersion expanded rapidly following formation and slope flattened earlier than prior anchors. Sigma penetrations have occurred with greater frequency and less containment.</p>
+      <p>Frequent crossings of the anchored mean indicate redistribution rather than consolidation. The Pink layer reflects active positioning conflict, not durable control. Under trade-based bars, frequent crossings imply that successive 100,000-trade blocks alternate acceptance on either side of the mean, consistent with churn and inventory turnover rather than stable domination.</p>
+      <p>This short-cycle anchor provides insight into immediate auction behavior but does not supersede deeper layers unless failure cascades downward. Its reactivity underscores the importance of distinguishing between tactical volatility and structural change.</p>
+      <hr>
+
+      <div class="figure">
+        <img data-lightbox src="assets/img/CompositeStack-Historical.png" data-full="assets/img/CompositeStack-Historical.png" data-title="Composite Stack — Historical" alt="Composite Stack — Historical">
+        <div class="cap">Figure 7. Composite Stack — Historical view. Click to zoom and pan.</div>
+      </div>
+
+      <h2>11. Hierarchical Migration and Current Regime Status</h2>
+      <p>When all five anchors are observed concurrently, the hierarchy becomes explicit:</p>
+      <ul>
+        <li>Price remains materially above the May (Green) macro base.</li>
+        <li>July (Orange) reinforcement remains intact.</li>
+        <li>September (Yellow) equilibrium holds.</li>
+        <li>November (Light Blue) shows tactical decay.</li>
+        <li>January (Pink) reflects redistribution.</li>
+      </ul>
+      <p>The current configuration suggests compression within an intact macro regime. Tactical weakness has emerged, but deeper structural anchors have not been invalidated.</p>
+      <p>Migration between cost bases follows a sequential logic. Short-cycle cohorts fail first. Intermediate equilibrium layers absorb migration. Only when acceptance failure penetrates deeply into older anchors does regime transition occur. As of February 18, such propagation has not occurred. Under the present data construction, this means that the market has not sustained acceptance below progressively older cohort means across sufficiently large executed trade counts to qualify as structural transition.</p>
+      <p>Dominance share can be used to quantify this migration. If price begins to spend an increasing proportion of participation-normalized bars closest to a deeper anchor (for example shifting from November-dominant to September-dominant), that formalizes migration rather than relying on visual judgment alone.</p>
+      <hr>
+
+      <h2>12. Conditions for Structural Transition</h2>
+      <p>Structural regime change would require sequential evidence:</p>
+      <ol>
+        <li>Sustained acceptance below the September (Yellow) mean.</li>
+        <li>Repeated failure to reclaim that mean on retests.</li>
+        <li>Flattening or inversion of slope in Yellow, followed by deterioration in Orange.</li>
+        <li>Persistent downside excursions beyond historical sigma behavior without responsive absorption.</li>
+      </ol>
+      <p>Absent these conditions, macro regime integrity remains defensible.</p>
+      <p>In the sigma-statistics framing, "sequential evidence" corresponds to rising \(A_a(k)\), longer \(D_a(k)\), and increasing \(TMR_a(k)\) appearing first in the newest anchors and then cascading into older anchors, with slope and dispersion evolution confirming the change in regime character. In the present study, those quantities are interpreted in trade-bar units: acceptance persistence implies sustained behavior across large executed trade counts rather than across time intervals.</p>
+      <hr>
+
+      <h2>13. Conclusion</h2>
+      <p>Maintaining multiple anchored VWAP distributions from statistically significant flow extremes reveals a layered hierarchy of inventory persistence. Each anchor represents a cohort cost basis formed under stress. Structural interpretation emerges from observing how price interacts with these stacked layers in participation-normalized space.</p>
+      <ul>
+        <li>May 14 (Green) remains foundational.</li>
+        <li>July 7 (Orange) reinforces macro alignment.</li>
+        <li>September 23 (Yellow) stabilizes equilibrium.</li>
+        <li>November 28 (Light Blue) exhibits tactical decay.</li>
+        <li>January 13 (Pink) reflects short-cycle redistribution.</li>
+      </ul>
+      <p>The present regime state is consistent with tactical weakness and internal migration rather than confirmed macro transition. Control decays progressively, not instantaneously. Only when acceptance failure propagates into the deepest anchored layers can structural reversal be asserted.</p>
+      <p>Sigma interaction statistics provide the quantifiable backbone for these claims by converting "band respect" and "loss of control" into measurable metrics: visit duration, rejection versus acceptance, return-to-mean time, dominance share, and cascade propagation across the anchor stack. Under fixed-trade bar construction, these statistics reflect persistence and decay across equal executed trade increments, making regime interpretation robust to shifts in participation intensity and avoiding artifacts introduced by session boundaries or clock-time sampling.</p>
+
+      <div class="note">
+        <strong>Replacing images later:</strong> overwrite the files inside <code>assets/img/</code> while keeping the same filenames (e.g., <code>may14_green.png</code>, <code>july7-orange.png</code>, etc.). No HTML edits required. If your browser shows an old image, hard refresh (Ctrl+F5 / Cmd+Shift+R).
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lb-backdrop" aria-hidden="true">
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Figure viewer">
+      <div class="lb-topbar">
+        <div class="lb-title" id="lbTitle">Figure</div>
+        <div class="lb-actions">
+          <button class="lb-btn" id="lbOut" type="button">−</button>
+          <button class="lb-btn" id="lbIn" type="button">+</button>
+          <button class="lb-btn" id="lbReset" type="button">Reset</button>
+          <button class="lb-btn" id="lbFull" type="button">Fullscreen</button>
+          <button class="lb-btn" id="lbClose" type="button">Close</button>
+        </div>
+      </div>
+      <div class="lb-canvas" id="lbCanvas">
+        <img class="lb-img" id="lbImg" alt="Zoomed figure">
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/lightbox.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</body>
+</html>

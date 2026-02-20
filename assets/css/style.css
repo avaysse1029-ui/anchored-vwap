@@ -1,0 +1,177 @@
+:root{
+  --bg:#0b0f14;
+  --panel:#0f1620;
+  --text:rgba(255,255,255,.88);
+  --muted:rgba(255,255,255,.62);
+  --line:rgba(255,255,255,.12);
+  --accent:rgba(120,170,255,.85);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background:radial-gradient(1200px 600px at 15% 0%, rgba(90,140,255,.10), transparent 60%),
+             radial-gradient(1000px 700px at 85% 10%, rgba(255,140,90,.08), transparent 60%),
+             var(--bg);
+  color:var(--text);
+  line-height:1.72;
+  font-size:15.5px;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:860px; margin:0 auto; padding:36px 20px 100px}
+.header{
+  padding:28px 26px;
+  border:1px solid var(--line);
+  background:rgba(15,22,32,.70);
+  border-radius:18px;
+  backdrop-filter: blur(8px);
+}
+.kicker{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+h1{font-size:30px; line-height:1.2; margin:10px 0 10px}
+.subtitle{color:var(--muted); font-size:15px; margin-top:0}
+.meta{margin-top:14px; color:var(--muted); font-size:13px}
+.paper{
+  margin-top:20px;
+  padding:30px 32px;
+  border:1px solid var(--line);
+  background:rgba(15,22,32,.55);
+  border-radius:18px;
+}
+.paper h2{
+  margin:38px 0 14px;
+  font-size:21px;
+  letter-spacing:-.01em;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--line);
+}
+.paper h2:first-of-type{margin-top:18px}
+.paper h3{
+  margin:28px 0 10px;
+  font-size:17px;
+  color:rgba(255,255,255,.90);
+  font-weight:600;
+}
+.paper h4{
+  margin:20px 0 6px;
+  font-size:15.5px;
+  color:var(--accent);
+  font-weight:600;
+}
+.paper p{margin:10px 0; line-height:1.72}
+.paper ul,.paper ol{
+  margin:10px 0 14px 6px;
+  padding-left:20px;
+}
+.paper li{
+  margin:5px 0;
+  line-height:1.65;
+}
+hr{border:none; border-top:1px solid var(--line); margin:30px 0}
+.figure{
+  margin:20px 0 22px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(0,0,0,.20);
+}
+.figure .cap{
+  padding:10px 14px;
+  font-size:12.5px;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+}
+.figure img{
+  width:100%;
+  height:auto;
+  display:block;
+  cursor:zoom-in;
+  image-rendering:auto;
+}
+.note{
+  margin-top:24px;
+  padding:14px 16px;
+  border:1px dashed rgba(255,255,255,.18);
+  border-radius:14px;
+  color:var(--muted);
+  background:rgba(0,0,0,.18);
+  font-size:12.5px;
+}
+/* Abstract two-column layout */
+.abstract-row{
+  display:flex;
+  gap:24px;
+  align-items:flex-start;
+  margin:10px 0;
+}
+.abstract-text{
+  flex:1 1 55%;
+  min-width:0;
+}
+.abstract-img{
+  flex:0 0 40%;
+  min-width:0;
+}
+.abstract-img .figure{
+  margin:0;
+}
+@media (max-width:700px){
+  .abstract-row{
+    flex-direction:column;
+  }
+  .abstract-img{
+    flex:none;
+    width:100%;
+  }
+}
+
+/* KaTeX display math */
+.katex-display{margin:18px 0 !important}
+
+/* Lightbox */
+.lb-backdrop{
+  position:fixed; inset:0; display:none;
+  align-items:center; justify-content:center;
+  background:rgba(0,0,0,.82);
+  z-index:9999;
+}
+.lb-backdrop.open{display:flex}
+.lb-panel{
+  width:min(1320px, calc(100vw - 24px));
+  height:min(88vh, 980px);
+  background:rgba(15,18,24,.92);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  overflow:hidden;
+}
+.lb-topbar{
+  display:flex; justify-content:space-between; align-items:center;
+  gap:10px; padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.lb-title{font-size:13px; color:rgba(255,255,255,.7); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.lb-actions{display:flex; gap:8px; flex-wrap:wrap}
+.lb-btn{
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  color:#fff; padding:7px 10px;
+  font-size:12px; border-radius:10px;
+  cursor:pointer;
+}
+.lb-btn:hover{background:rgba(255,255,255,.10)}
+.lb-canvas{
+  position:relative;
+  height:calc(100% - 44px);
+  overflow:hidden;
+  touch-action:none;
+}
+.lb-img{
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  max-width:none;
+  max-height:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
